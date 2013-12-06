@@ -1,0 +1,42 @@
+{
+  "name": "grunt-template-transformer",
+  "description": "Module for Transforming JavaScript template to JSON Object",
+  "version": "0.1.0",
+  "homepage": "https://github.com/CoderK/grunt-template-transformer",
+  "author": {
+    "name": "CoderK",
+    "email": "jeokrang@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CoderK/grunt-template-transformer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CoderK/grunt-template-transformer/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/CoderK/grunt-template-transformer/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "keywords": [
+    "template-transformer for grunt"
+  ]
+}
