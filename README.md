@@ -1,4 +1,4 @@
-# template-loader
+# template-transformer
 
 > Module for Transforming JavaScript template to JSON Object
 
@@ -8,7 +8,7 @@ This plugin requires Grunt `~0.4.2`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install template-loader --save-dev
+npm install grunt-template-transformer --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-template-transformer');
 ```
 
-## The "template_loader" task
+## The "template_transformer" task
 
 ### Overview
-In your project's Gruntfile, add a section named `template_loader` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `template_transformer` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  template_loader: {
+  template_transformer: {
     options: {
       // Task-specific options go here.
       }
@@ -55,7 +55,7 @@ A string specifying object name to be assigned.
 
 ```js
 grunt.initConfig({
-  template_loader: {
+  template_transformer: {
     options: {
         assign : {
             variable : "TemplateJSON",        // specify variable name to be assigned.
@@ -67,8 +67,8 @@ grunt.initConfig({
     },
   },
 });
-
-test/resources/template.html
+```
+'test/resources/template.html'
 
 ```html
 <!DOCTYPE html>
@@ -90,10 +90,9 @@ test/resources/template.html
 </html>
 ```
 
-```
 When this example task is executed, it will transform HTML file into js on the below.
 
-template-context.js
+'template-context.js'
 
 ```js
 var foo = foo || {};
