@@ -67,8 +67,33 @@ grunt.initConfig({
     },
   },
 });
+
+test/resources/template.html
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Template for test</title>
+</head>
+<body>
+
+<script type="text/template" id="test1">
+    <div></div>
+</script>
+
+<script type="text/template" id="test2">
+    <a></a>
+</script>
+
+</body>
+</html>
 ```
-When this example task execute, it will create js file on the below.
+
+```
+When this example task is executed, it will transform HTML file into js on the below.
+
+template-context.js
 
 ```js
 var foo = foo || {};
