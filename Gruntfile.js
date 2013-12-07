@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    template_loader: {
+    template_transformer: {
         custom_options: {
             options: {
                 assign : {
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                 }
             },
             files: {
-                'template-context.js': ["test/resources/template.html"]
+                'tmp/template-context.js': ["test/resources/template.html"]
             }
         }
     },
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'template_loader', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'template_transformer', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

@@ -28,27 +28,44 @@ exports.template_loader = {
         done();
     },
 
-    can_load_template_written_with_html : function(test){
-        grunt.file.defaultEncoding = 'utf8';
+    can_create_variableDeclaration_string : function(test){
+        // given
+        // when
+        var sVariableDeclaration = grunt.createVariableDeclaration({
+            variable : "foo"
+        }, "");
 
-        var sRawHTML = grunt.file.read('test/resources/template.html').replace(/(\r\n|\n|\r)/gm,"");
-        var aExtractedString = sRawHTML.match(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi);
-        var nLen = aExtractedString.length;
-        var htTemplates = {};
-        var sTemplate = null;
-        var sId = null;
+        // then
+        test.equal(sVariableDeclaration, "var foo = ");
+        test.done();
+    },
 
-        for(var i = 0; i < nLen; i++){
-            sTemplate = aExtractedString[i];
-            sId = sTemplate.match(/<script.*id="(.*)">/)[1];
-            htTemplates[sId] = sTemplate;
-        }
+    can_create_objectDeclaration_string : function(test){
+        // given
+        // when
+        var sObjectDeclaration = grunt.createObjectDeclaration({
+            object : "foo.bar.Template"
+        }, "");
 
-        grunt.file.write("./tmp/template-test.js", JSON.stringify(htTemplates));
+        // then
+        test.equal(sObjectDeclaration, 'var foo = foo || {}; \nfoo.bar = foo.bar || {}; \n\nfoo.bar.Template = ');
+        test.done();
+    },
 
-        test.equal(htTemplates.length, undefined);
+    can_parse_scriptTag_in_the_HTML_file : function(test){
+        // givn
+        var sSourceHTML = grunt.file.read('test/resources/template.html');
+
+        // when
+        var htTemplates = grunt.parseSourceHTML(sSourceHTML);
+
+        // then
+        test.equal(htTemplates.test1, '<script type="text/template" id="test1">\n    <div></div>\n</script>');
+        test.equal(htTemplates.test2, '<script type="text/template" id="test2">\n    <a></a>\n</script>');
+
         test.done();
     }
+
 };
 
 
