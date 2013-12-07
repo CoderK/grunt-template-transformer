@@ -68,9 +68,9 @@ grunt.initConfig({
   },
 });
 
-test/resources/template.html
+'test/resources/template.html'
 
-```html
+```js
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +93,7 @@ test/resources/template.html
 ```
 When this example task is executed, it will transform HTML file into js on the below.
 
-template-context.js
+'template-context.js'
 
 ```js
 var foo = foo || {};
