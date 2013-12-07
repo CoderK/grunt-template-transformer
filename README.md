@@ -52,7 +52,6 @@ A string specifying object name to be assigned.
 ### Usage Examples
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
 
 ```js
 grunt.initConfig({
@@ -68,6 +67,14 @@ grunt.initConfig({
     },
   },
 });
+```
+When this example task execute, it will create js file on the below.
+
+```js
+var foo = foo || {};
+foo.com = foo.com || {};
+
+var TemplateJSON = foo.com.TemplateJSON = {"test1":"<script type=\"text/template\" id=\"test1\">\n    <div></div>\n</script>","test2":"<script type=\"text/template\" id=\"test2\">\n    <a></a>\n</script>"}
 ```
 
 ## Contributing
