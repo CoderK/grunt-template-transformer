@@ -60,8 +60,8 @@ exports.template_loader = {
         var htTemplates = grunt.parseSourceHTML(sSourceHTML);
 
         // then
-        test.equal(htTemplates.test1, '<script type="text/template" id="test1">\n    <div></div>\n</script>');
-        test.equal(htTemplates.test2, '<script type="text/template" id="test2">\n    <a></a>\n</script>');
+        test.equal(htTemplates.test1, '<div></div>');
+        test.equal(htTemplates.test2, '<a></a>');
 
         test.done();
     }

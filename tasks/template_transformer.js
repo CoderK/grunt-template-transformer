@@ -48,15 +48,25 @@ module.exports = function(grunt) {
         var nLen = aExtractedScripts.length;
         var htTemplates = {};
         var sTemplate = null;
+        var sSerializedCode = null;
         var sId = null;
 
         for (var i = 0; i < nLen; i++) {
             sTemplate = aExtractedScripts[i];
             sId = sTemplate.match(/<script.*id="(.*)">/)[1];
-            htTemplates[sId] = sTemplate;
+            sSerializedCode = serialize(sTemplate);
+            htTemplates[sId] = lrTrim(sSerializedCode);
         }
         return htTemplates;
     };
+
+    function serialize(string){
+        return string.replace(/[\r\n]/gi, "").match(/<script[^>]*>(.*?)<\/script>/)[1];
+    }
+
+    function lrTrim(string){
+        return string.replace(/^\s+/, "").replace(/^\s+/, "");
+    }
 
     grunt.registerMultiTask('template_transformer', 'Loader for JavaScript template written in HTML', function() {
         // Merge task-specific and/or target-specific options with these defaults.
