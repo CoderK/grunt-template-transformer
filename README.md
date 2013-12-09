@@ -56,15 +56,17 @@ A string specifying object name to be assigned.
 ```js
 grunt.initConfig({
   template_transformer: {
-    options: {
-        assign : {
-            variable : "TemplateJSON",        // specify variable name to be assigned.
-            object : "foo.com.TemplateJSON"   // specify object name to be assigned.
+    custom_options: {
+        options: {
+            assign : {
+                variable : "TemplateJSON",
+                object : "foo.com.TemplateJSON"
+            }
+        },
+        files: {
+            'tmp/template-context.js': ["test/resources/template.html"]
         }
-    },
-    files: {
-      'template-context.js': ["test/resources/template.html"]
-    },
+    }
   },
 });
 ```
